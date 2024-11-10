@@ -1,5 +1,4 @@
 import MVO
-import MonteCarlo
 
 test_portfolio=MVO.mvo()
 
