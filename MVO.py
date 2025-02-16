@@ -69,7 +69,7 @@ class mvo:
     def optimize(self, years, lower_bound,upper_bound,rf_rate=None):
         if rf_rate==None:
             rfrate= yf.download('^IRX', period="1d", interval="1d")
-            rfrate = rfrate['Adj Close']
+            rfrate = rfrate['Close']
             rf_rate = rfrate.iloc[-1,-1]/100
 
         end_date= datetime.today()
@@ -77,7 +77,7 @@ class mvo:
 
         adjclose_df = pd.DataFrame()
         self.tickerlist=list(self.tickers)
-        adjclose_df=yf.download(self.tickerlist, start = start_date, end = end_date)['Adj Close']
+        adjclose_df=yf.download(self.tickerlist, start = start_date, end = end_date)['Close']
         adjclose_df=adjclose_df[self.tickerlist]
         adjclose_df=adjclose_df.dropna()
             
